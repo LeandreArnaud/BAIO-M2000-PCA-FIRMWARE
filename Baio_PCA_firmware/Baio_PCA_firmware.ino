@@ -161,7 +161,7 @@ DcsBios::IntegerBuffer pcaButton5SBuffer(0x72c0, 0x0002, 1, onPcaButton5SChange)
 void onConsolePanelLgtKnobChange(unsigned int newValue) {
     analogWrite(PCAbacklightPin, newValue/256);
 }
-DcsBios::IntegerBuffer consolePanelLgtKnobBuffer(0x72A0, 0xffff, 0, onConsolePanelLgtKnobChange);
+DcsBios::IntegerBuffer consolePanelLgtKnobBuffer(0x72a0, 0xffff, 0, onConsolePanelLgtKnobChange);
 
 
 
