@@ -80,10 +80,12 @@ void setup() {
 // GUN BUTTON
 void onGunModeKl1Change(unsigned int newValue) {
     bitWrite(matrix.displaybuffer[2], 0, newValue);
+    matrix.writeDisplay();
 }
 DcsBios::IntegerBuffer gunModeKl1Buffer(0x72c0, 0x0004, 2, onGunModeKl1Change);
 void onGunModeKl2Change(unsigned int newValue) {
     bitWrite(matrix.displaybuffer[1], 0, newValue);
+    matrix.writeDisplay();
 }
 DcsBios::IntegerBuffer gunModeKl2Buffer(0x72c0, 0x0008, 3, onGunModeKl2Change);
 
@@ -92,22 +94,27 @@ DcsBios::IntegerBuffer gunModeKl2Buffer(0x72c0, 0x0008, 3, onGunModeKl2Change);
 // READY LIGHTS
 void onWeapon1RChange(unsigned int newValue) {
     bitWrite(matrix.displaybuffer[1], 1, newValue);
+    matrix.writeDisplay();
 }
 DcsBios::IntegerBuffer weapon1RBuffer(0x72c0, 0x0020, 5, onWeapon1RChange);
 void onWeapon2RChange(unsigned int newValue) {
     bitWrite(matrix.displaybuffer[1], 2, newValue);
+    matrix.writeDisplay();
 }
 DcsBios::IntegerBuffer weapon2RBuffer(0x72c0, 0x0080, 7, onWeapon2RChange);
 void onWeapon3RChange(unsigned int newValue) {
     bitWrite(matrix.displaybuffer[1], 3, newValue);
+    matrix.writeDisplay();
 }
 DcsBios::IntegerBuffer weapon3RBuffer(0x72c0, 0x0200, 9, onWeapon3RChange);
 void onWeapon4RChange(unsigned int newValue) {
     bitWrite(matrix.displaybuffer[1], 4, newValue);
+    matrix.writeDisplay();
 }
 DcsBios::IntegerBuffer weapon4RBuffer(0x72c0, 0x0800, 11, onWeapon4RChange);
 void onWeapon5RChange(unsigned int newValue) {
     bitWrite(matrix.displaybuffer[1], 5, newValue);
+    matrix.writeDisplay();
 }
 DcsBios::IntegerBuffer weapon5RBuffer(0x72c0, 0x2000, 13, onWeapon5RChange);
 
@@ -115,22 +122,27 @@ DcsBios::IntegerBuffer weapon5RBuffer(0x72c0, 0x2000, 13, onWeapon5RChange);
 // SELECTED BUTTONS LIGHT
 void onWeapon1SChange(unsigned int newValue) {
     bitWrite(matrix.displaybuffer[2], 1, newValue);
+    matrix.writeDisplay();
 }
 DcsBios::IntegerBuffer weapon1SBuffer(0x72c0, 0x0010, 4, onWeapon1SChange);
 void onWeapon2SChange(unsigned int newValue) {
     bitWrite(matrix.displaybuffer[2], 2, newValue);
+    matrix.writeDisplay();
 }
 DcsBios::IntegerBuffer weapon2SBuffer(0x72c0, 0x0040, 6, onWeapon2SChange);
 void onWeapon3SChange(unsigned int newValue) {
     bitWrite(matrix.displaybuffer[2], 3, newValue);
+    matrix.writeDisplay();
 }
 DcsBios::IntegerBuffer weapon3SBuffer(0x72c0, 0x0100, 8, onWeapon3SChange);
 void onWeapon4SChange(unsigned int newValue) {
     bitWrite(matrix.displaybuffer[2], 4, newValue);
+    matrix.writeDisplay();
 }
 DcsBios::IntegerBuffer weapon4SBuffer(0x72c0, 0x0400, 10, onWeapon4SChange);
 void onWeapon5SChange(unsigned int newValue) {
     bitWrite(matrix.displaybuffer[2], 5, newValue);
+    matrix.writeDisplay();
 }
 DcsBios::IntegerBuffer weapon5SBuffer(0x72c0, 0x1000, 12, onWeapon5SChange);
 
@@ -138,22 +150,27 @@ DcsBios::IntegerBuffer weapon5SBuffer(0x72c0, 0x1000, 12, onWeapon5SChange);
 // SELECTED WEAPON LIGHT
 void onPcaButton1SChange(unsigned int newValue) {
     bitWrite(matrix.displaybuffer[0], 0, newValue);
+    matrix.writeDisplay();
 }
 DcsBios::IntegerBuffer pcaButton1SBuffer(0x72be, 0x2000, 13, onPcaButton1SChange);
 void onPcaButton2SChange(unsigned int newValue) {
     bitWrite(matrix.displaybuffer[0], 1, newValue);
+    matrix.writeDisplay();
 }
 DcsBios::IntegerBuffer pcaButton2SBuffer(0x72be, 0x4000, 14, onPcaButton2SChange);
 void onPcaButton3SChange(unsigned int newValue) {
     bitWrite(matrix.displaybuffer[0], 2, newValue);
+    matrix.writeDisplay();
 }
 DcsBios::IntegerBuffer pcaButton3SBuffer(0x72be, 0x8000, 15, onPcaButton3SChange);
 void onPcaButton4SChange(unsigned int newValue) {
     bitWrite(matrix.displaybuffer[0], 3, newValue);
+    matrix.writeDisplay();
 }
 DcsBios::IntegerBuffer pcaButton4SBuffer(0x72c0, 0x0001, 0, onPcaButton4SChange);
 void onPcaButton5SChange(unsigned int newValue) {
     bitWrite(matrix.displaybuffer[0], 4, newValue);
+    matrix.writeDisplay();
 }
 DcsBios::IntegerBuffer pcaButton5SBuffer(0x72c0, 0x0002, 1, onPcaButton5SChange);
 
@@ -171,8 +188,6 @@ void loop() {
   DcsBios::loop();
 
   scanPCA();
-  delay(10);
-  matrix.writeDisplay();
   delay(10);
 }
 
