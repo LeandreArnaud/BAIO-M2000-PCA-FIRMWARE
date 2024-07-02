@@ -212,6 +212,23 @@ void scanPCA() {
         // Serial.println(registreLength*k+i);
         // Serial.println(value);
         // Serial.println("----");
+
+        // if dcs bios is not connected, change leds state
+        if (!Serial.available() && value) {
+          if (k == 0 && i <= 4) { // buttons
+            matrix.displaybuffer[0] = 0b0000000000000000;
+            bitWrite(matrix.displaybuffer[0], i, !bitRead(matrix.displaybuffer[0], i));
+            matrix.writeDisplay();
+          } else if (k != 1 || (i != 3 && i !=4)) { // if it is not a toggle
+            matrix.displaybuffer[1] = 0b0000000000000000;
+            matrix.displaybuffer[2] = 0b0000000000000000;
+            int blablou = i-5;
+            if (k == 1) blablou = i+3;
+            bitWrite(matrix.displaybuffer[1], blablou, !bitRead(matrix.displaybuffer[1], blablou));
+            bitWrite(matrix.displaybuffer[2], blablou, !bitRead(matrix.displaybuffer[2], blablou));
+            matrix.writeDisplay();
+          }
+        }
       }
 
       digitalWrite(PCAclockPin, 1);
