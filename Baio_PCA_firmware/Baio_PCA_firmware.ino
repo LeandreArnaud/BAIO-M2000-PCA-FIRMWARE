@@ -62,7 +62,7 @@ void setup() {
 
   // init digits
   for (uint8_t i=0; i<8; i++) {
-    matrix.displaybuffer[i] = 0b1111111111111111;
+    matrix.displaybuffer[i] = 0b0000000000000000;
     delay(100);
   }
   matrix.writeDisplay();
