@@ -16,7 +16,6 @@ baio_m2000_pca.upload_port.2.vid=0x2A03
 baio_m2000_pca.upload_port.2.pid=0x0036
 baio_m2000_pca.upload_port.3.vid=0x2A03
 baio_m2000_pca.upload_port.3.pid=0x8036
-baio_m2000_pca.upload_port.4.board=leonardo
 
 baio_m2000_pca.upload.tool=avrdude
 baio_m2000_pca.upload.tool.default=avrdude
@@ -41,7 +40,7 @@ baio_m2000_pca.bootloader.lock_bits=0x2F
 baio_m2000_pca.build.mcu=atmega32u4
 baio_m2000_pca.build.f_cpu=16000000L
 baio_m2000_pca.build.vid=0x2341
-baio_m2000_pca.build.pid=0x8036
+baio_m2000_pca.build.pid=0x8037
 baio_m2000_pca.build.usb_product="BAIO M2000 PCA"
 baio_m2000_pca.build.board=AVR_LEONARDO
 baio_m2000_pca.build.core=arduino
