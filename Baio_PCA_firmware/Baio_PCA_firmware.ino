@@ -175,10 +175,14 @@ void onPcaButton5SChange(unsigned int newValue) {
 DcsBios::IntegerBuffer pcaButton5SBuffer(0x72c0, 0x0002, 1, onPcaButton5SChange);
 
 // CONSOLE BACKLIGHT
-void onConsolePanelLgtKnobChange(unsigned int newValue) {
+void onDashPanelLgtKnobChange(unsigned int newValue) {
     analogWrite(PCAbacklightPin, newValue/256);
 }
-DcsBios::IntegerBuffer consolePanelLgtKnobBuffer(0x72a0, 0xffff, 0, onConsolePanelLgtKnobChange);
+DcsBios::IntegerBuffer dashPanelLgtKnobBuffer(0x729c, 0xffff, 0, onDashPanelLgtKnobChange);
+void onCautAdvLgtChange(unsigned int newValue) {
+    matrix.setBrightness(newValue/4096);
+}
+DcsBios::IntegerBuffer cautAdvLgtBuffer(0x72a2, 0xffff, 0, onCautAdvLgtChange);
 
 
 
