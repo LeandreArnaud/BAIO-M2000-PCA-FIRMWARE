@@ -165,11 +165,22 @@ DcsBios::IntegerBuffer pcaButton5SBuffer(0x72c0, 0x0002, 1, onPcaButton5SChange)
 
 // CONSOLE BACKLIGHT
 void onDashPanelLgtKnobChange(unsigned int newValue) {
-    analogWrite(PCAbacklightPin, newValue/256);
+    if (newValue <= 2000) {
+        analogWrite(PCAbacklightPin, 0);
+    } else {
+        analogWrite(PCAbacklightPin, newValue/256);    
+    }
 }
 DcsBios::IntegerBuffer dashPanelLgtKnobBuffer(0x729c, 0xffff, 0, onDashPanelLgtKnobChange);
 void onCautAdvLgtChange(unsigned int newValue) {
-    matrix.setBrightness(newValue/4096);
+  if (newValue <= 2000) {
+        matrix.setBrightness(0);
+        matrix.setDisplayState(false);
+    } else {
+        matrix.setBrightness(newValue/4096);
+        matrix.setDisplayState(true);
+    }
+    
 }
 DcsBios::IntegerBuffer cautAdvLgtBuffer(0x72a2, 0xffff, 0, onCautAdvLgtChange);
 
